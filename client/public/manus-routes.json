@@ -1,0 +1,15 @@
+{
+  "routes": [
+    { "path": "/", "title": "Dago Travel — Dashboard" },
+    { "path": "/viaggi", "title": "I miei viaggi" },
+    { "path": "/esplora", "title": "Esplora destinazioni" },
+    { "path": "/preferiti", "title": "Destinazioni preferite" },
+    { "path": "/links", "title": "Links utili per il viaggio" },
+    { "path": "/offerte-voli", "title": "Offerte voli da Bari e Brindisi" },
+    { "path": "/guida-paese", "title": "Documenti e consigli per Paese" },
+    {
+      "path": "/parcheggi-aeroporto",
+      "title": "Parcheggi vicino agli aeroporti"
+    }
+  ]
+}
