@@ -561,7 +561,7 @@ export default function Home() {
                   </div>
                   <section className="hero">
                     <img
-                      src="/manus-storage/bali_16b74246.webp"
+                      src="/images/bali.webp"
                       alt="Scogliere verdi e mare turchese a Nusa Penida, Bali"
                       className="hero-image"
                       fetchPriority="high"

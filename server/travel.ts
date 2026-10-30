@@ -464,7 +464,14 @@ async function requestTravelPlan(
 async function generateTravelPlan(input: TripInput): Promise<TravelPlan> {
   // A structured response is preferred; a single plain-JSON retry covers a valid
   // completion with absent/empty content from the structured route.
-  let content = await requestTravelPlan(input, true);
+  let content: string | null = null;
+  if (process.env.LLM_STRUCTURED === "true") {
+    try {
+      content = await requestTravelPlan(input, true);
+    } catch (error) {
+      console.error("[travel.generate] structured request failed:", error);
+    }
+  }
   if (!content) content = await requestTravelPlan(input, false);
   if (!content) throw new InvalidModelOutputError();
 
@@ -541,6 +548,7 @@ async function generateTravelChat(
   let content: string | null = null;
 
   try {
+    if (process.env.LLM_STRUCTURED !== "true") throw new Error("structured disabled");
     content = await requestTravelChat(input, true);
   } catch {
     // Retry once with the same explicit model but without response_format, which
@@ -592,6 +600,7 @@ export const travelRouter = router({
       try {
         return await withTimeout(operation);
       } catch (error) {
+        console.error("[travel.generate] failed:", error);
         if (error instanceof TRPCError) throw error;
         if (error instanceof GenerationTimeoutError) {
           throw new TRPCError({
@@ -628,6 +637,7 @@ export const travelRouter = router({
       try {
         return await withTimeout(operation);
       } catch (error) {
+        console.error("[travel.chat] failed:", error);
         if (error instanceof TRPCError) throw error;
         return unavailableChatResponse();
       }

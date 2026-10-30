@@ -5,7 +5,7 @@ export const destinations = [
   {
     name: "Bali",
     country: "Indonesia",
-    image: "/manus-storage/bali_16b74246.webp",
+    image: "/images/bali.webp",
     tag: "Un po’ di paradiso",
     style: "Relax",
     days: 10,
@@ -16,7 +16,7 @@ export const destinations = [
   {
     name: "Lisbona",
     country: "Portogallo",
-    image: "/manus-storage/lisbon_df9a4cf4.jpg",
+    image: "/images/lisbon.jpg",
     tag: "Per anime curiose",
     style: "Cultura",
     days: 5,
@@ -27,7 +27,7 @@ export const destinations = [
   {
     name: "Dolomiti",
     country: "Italia",
-    image: "/manus-storage/dolomites_337ed3a1.jpg",
+    image: "/images/dolomites.jpg",
     tag: "Respira, sei qui",
     style: "Avventura",
     days: 4,
